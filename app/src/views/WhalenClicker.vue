@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <h1>genie clicker</h1>
+    <h1>whalen clicker</h1>
     <h2>{{ count }}</h2>
-    <img @click="increment" src="/genie.jpg" />
+    <img @click="increment" src="/whalen.jpg" />
     <button @click="set0">Stop</button>
   </div>
 </template>
