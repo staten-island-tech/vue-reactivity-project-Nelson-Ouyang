@@ -10,14 +10,17 @@
 <script setup>
 import { ref } from 'vue'
 const count = ref(0) //use ur magic to track this varaible
+let amount = ref(1)
 function increment() {
-  count.value++
-  count.value = Math.pow(count.value, 1.005)
-  // because _
+  count.value += amount.value
 }
 function set0() {
   count.value = 0
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+div {
+  text-align: center;
+}
+</style>
