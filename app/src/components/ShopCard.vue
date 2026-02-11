@@ -1,6 +1,9 @@
 <template>
   <div>
     <h2>{{ item.name }}</h2>
+    <div class="image-container">
+      <img :src="item.image" alt="" />
+    </div>
   </div>
 </template>
 
@@ -19,8 +22,14 @@ div {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 200px;
-  width: 150px;
+  height: 500px;
+  width: 350px;
   border: 3px solid black;
+}
+
+.image-container {
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
 }
 </style>
