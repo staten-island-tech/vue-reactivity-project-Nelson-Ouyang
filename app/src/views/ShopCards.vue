@@ -7,16 +7,15 @@
 <script setup>
 import { ref } from 'vue'
 import ShopCard from '@/components/ShopCard.vue'
-//for key, its asking waht makes each object unique, and its animal.name
+
 const shop = ref([
-  //make it from small whale species to big whale species
   {
     name: 'Dwarf Sperm Whalen',
     apply: '+',
     value: 1,
     cost: 10,
     limit: 20,
-    image: 'Dwarf Sperm Whale.webp',
+    image: '/Dwarf Sperm Whale.webp',
   },
   { name: 'Narwhalen', apply: '*', value: 0.05, cost: 30, limit: 15, image: '/Narwhal.jpg' },
   {
@@ -30,7 +29,7 @@ const shop = ref([
   { name: 'Gray Whalen', apply: '+', value: 50, cost: 2000, limit: 30, image: '/Gray Whale.png' },
   {
     name: 'Humpback Whalen',
-    apply: 'x',
+    apply: '*',
     value: 1.5,
     cost: 10000,
     limit: 5,
@@ -53,9 +52,34 @@ const shop = ref([
     image: '/Blue Whale.jpg',
   },
 ])
-const exponentbase = 1
-const multiplierbase = 1
-//each file break into smaller components --> resubable, ex: card component, use in diff apps amongst team , a good function = SINGLE output, single PURPOSE
+
+const base = ref(1)
+const additionbase = ref(0)
+const multiplierbase = ref(0)
+const exponentbase = ref(0)
+const boughtItems = ref([])
+
+function buyItem(item) {
+  const count = boughtItems.value.filter((i) => i.name === item.name).length
+  if (count >= item.limit) {
+    alert('no more haahahhgdhsgfhdhgdsf')
+    return
+  }
+
+  if (item.apply === '+') {
+    additionbase.value += item.value
+  } else if (item.apply === '*') {
+    multiplierbase.value += item.value
+  } else if (item.apply === '^') {
+    exponentbase.value += item.value
+  }
+
+  boughtItems.value.push(item)
+}
+
+function applyAll() {
+  base.value = ((1 + additionbase.value) * (1 + multiplierbase.value)) ** (1 + exponentbase.value)
+}
 </script>
 
 <style scoped>

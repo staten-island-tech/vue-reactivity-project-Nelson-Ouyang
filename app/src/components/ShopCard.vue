@@ -3,6 +3,7 @@
     <h2>{{ item.name }}</h2>
     <div class="image-container">
       <img :src="item.image" alt="" />
+      <button @click="buyItem(item)">Buy</button>
     </div>
   </div>
 </template>
@@ -28,8 +29,13 @@ div {
 }
 
 .image-container {
-  width: fit-content;
-  height: fit-content;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 </style>

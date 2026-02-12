@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-const count = ref(0) //use ur magic to track this varaible
+
 let amount = ref(1)
 function increment() {
   count.value += amount.value
