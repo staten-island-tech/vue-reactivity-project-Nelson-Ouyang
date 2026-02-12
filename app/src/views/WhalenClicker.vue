@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-
+//find a way to format shopcards.vue into here etc
 let amount = ref(1)
 function increment() {
   count.value += amount.value
