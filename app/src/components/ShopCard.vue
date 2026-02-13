@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <h2>{{ item.name }}</h2>
-    <div class="image-container">
-      <img :src="item.image" alt="" />
-      <button @click="buyItem(item)">Buy</button>
-    </div>
+  <div class="card" @click="emit('buy', item)">
+    <img :src="item.image" />
+    <h3>{{ item.name }}</h3>
+    <p>Cost: {{ item.cost }}</p>
+    <p>u get: {{ item.apply }} {{ item.value }}</p>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  item: {
-    type: Object,
-    required: true,
-  },
+const props = defineProps({
+  item: Object,
 })
+
+const emit = defineEmits(['buy'])
 </script>
 
 <style scoped>
