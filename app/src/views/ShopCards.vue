@@ -11,11 +11,6 @@ defineProps({
   shop: Array,
 })
 
-const emit = defineEmits(['buy'])
-
-function buyItem(item) {
-  emit('buy', item)
-}
 </script>
 
 <style scoped>

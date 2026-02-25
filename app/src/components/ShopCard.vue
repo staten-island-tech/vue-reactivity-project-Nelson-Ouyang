@@ -1,18 +1,18 @@
 <template>
-  <div class="card" @click="emit('buy', item)">
+  <div class="card" @click="store('buy', item)">
     <img :src="item.image" />
     <h3>{{ item.name }}</h3>
     <p>Cost: {{ item.cost }}</p>
+    <p>Max amount of buys: {{ item.limit }}</p>
     <p>u get: {{ item.apply }} {{ item.value }}</p>
   </div>
 </template>
 
 <script setup>
+import { store } from '@/store/store.js'
 const props = defineProps({
   item: Object,
 })
-
-const emit = defineEmits(['buy'])
 </script>
 
 <style scoped>
