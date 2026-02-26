@@ -6,35 +6,39 @@ export const store = reactive({
   multiplierbase: 0,
   exponentbase: 0,
   boughtItems: [],
+
   ifCantAfford(item) {
-    if (base.value < item.cost) {
+    if (this.base < item.cost) {
       alert('Cannot afford this item!')
       return true
     }
     return false
   },
-  buyItem(item) {
-    const count = boughtItems.value.filter((i) => i.name === item.name).length
-    if (count >= item.limit) return alert('no more haahahhgdhsgfhdhgdsf')
 
-    if (item.apply === '+') {
-      if (ifCantAfford(item)) return
-      base.value -= item.cost
-      additionbase.value += item.value
-    } else if (item.apply === '*') {
-      if (ifCantAfford(item)) return
-      base.value -= item.cost
-      multiplierbase.value += item.value
-    } else if (item.apply === '^') {
-      if (ifCantAfford(item)) return
-      base.value -= item.cost
-      exponentbase.value += item.value
+  buyItem(item) {
+    const count = this.boughtItems.filter((i) => i.name === item.name).length
+
+    if (count >= item.limit) {
+      alert('Limit reached')
+      return
     }
 
-    boughtItems.value.push(item)
+    if (this.ifCantAfford(item)) return
+
+    this.base -= item.cost
+
+    if (item.apply === '+') {
+      this.additionbase += item.value
+    } else if (item.apply === '*') {
+      this.multiplierbase += item.value
+    } else if (item.apply === '^') {
+      this.exponentbase += item.value
+    }
+
+    this.boughtItems.push(item)
   },
+
   applyAll() {
-    base.value +=
-      ((1 + additionbase.value) * (1 + multiplierbase.value)) ** (1 + exponentbase.value)
+    this.base += ((1 + this.additionbase) * (1 + this.multiplierbase)) ** (1 + this.exponentbase)
   },
 })

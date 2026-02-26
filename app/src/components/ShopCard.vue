@@ -1,5 +1,13 @@
 <template>
-  <div class="card" @click="store('buy', item)">
+  <div
+    class="card"
+    @click="
+      () => {
+        store.ifCantAfford(item)
+        store.buyItem(item)
+      }
+    "
+  >
     <img :src="item.image" />
     <h3>{{ item.name }}</h3>
     <p>Cost: {{ item.cost }}</p>
@@ -36,4 +44,5 @@ img {
   height: auto;
   display: block;
 }
+
 </style>

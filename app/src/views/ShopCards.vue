@@ -10,14 +10,20 @@ import ShopCard from '@/components/ShopCard.vue'
 defineProps({
   shop: Array,
 })
-
 </script>
 
 <style scoped>
-div {
+/* @import 'tailwindcss';
+@plugin "daisyui";
+
+body {
+  @apply min-h-screen flex flex-col;
+} */
+.container {
+  display: flex;
+  gap: 16px;
   padding: 16px;
 }
-
 h1 {
   text-align: center;
   margin-bottom: 20px;
