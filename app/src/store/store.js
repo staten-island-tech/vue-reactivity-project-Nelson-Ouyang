@@ -33,6 +33,8 @@ export const store = reactive({
       this.multiplierbase += item.value
     } else if (item.apply === '^') {
       this.exponentbase += item.value
+    } else if (item.apply === 'poop') {
+      this.multiplierbase *= item.value
     }
 
     this.boughtItems.push(item)
