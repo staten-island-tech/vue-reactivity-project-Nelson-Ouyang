@@ -3,7 +3,6 @@
     class="card"
     @click="
       () => {
-        store.ifCantAfford(item)
         store.buyItem(item)
       }
     "
@@ -44,5 +43,4 @@ img {
   height: auto;
   display: block;
 }
-
 </style>

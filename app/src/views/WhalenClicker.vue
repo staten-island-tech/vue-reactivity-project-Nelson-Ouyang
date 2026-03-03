@@ -1,15 +1,17 @@
 <template>
-  <div class="container">
-    <h1>Whalen Clicker</h1>
+  <body>
+    <div class="container">
+      <h1>Whalen Clicker</h1>
 
-    <h2>{{ store.base }}</h2>
+      <h2>{{ store.base }}</h2>
 
-    <img @click="store.applyAll" src="/whalen.jpg" />
+      <img @click="store.applyAll" src="/whalen.jpg" />
 
-    <button @click="set0">Stop</button>
+      <button @click="set0">Stop</button>
 
-    <ShopCards :shop="shop" @buy="store.buyItem" />
-  </div>
+      <ShopCards :shop="shop" @buy="store.buyItem" />
+    </div>
+  </body>
 </template>
 
 <script setup>
@@ -100,5 +102,8 @@ function set0() {
 <style scoped>
 .container {
   text-align: center;
+}
+body {
+  background-image: url('/background.webp');
 }
 </style>

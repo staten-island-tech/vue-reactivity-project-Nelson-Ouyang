@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <ShopCard v-for="item in shop" :key="item.name" :item="item" />
-  </div>
+  <ul class="shop-list">
+    <li v-for="item in shop" :key="item.name">
+      <ShopCard :item="item" />
+    </li>
+  </ul>
 </template>
 
 <script setup>
@@ -13,12 +15,6 @@ defineProps({
 </script>
 
 <style scoped>
-/* @import 'tailwindcss';
-@plugin "daisyui";
-
-body {
-  @apply min-h-screen flex flex-col;
-} */
 .container {
   display: flex;
   gap: 16px;
@@ -28,7 +24,7 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-.container {
+.shop-list {
   display: flex;
   width: 80vw;
   margin: 20px auto;
