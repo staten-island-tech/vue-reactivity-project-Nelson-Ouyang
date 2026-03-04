@@ -33,11 +33,12 @@ h1 {
   flex-wrap: wrap;
 }
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid blue;
   padding: 12px;
   margin-bottom: 12px;
   border-radius: 6px;
   width: 300px;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

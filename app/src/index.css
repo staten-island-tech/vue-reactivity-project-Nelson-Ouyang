@@ -1,6 +1,0 @@
-@import 'tailwindcss';
-@plugin "daisyui";
-
-body {
-  @apply min-h-screen flex flex-col;
-}

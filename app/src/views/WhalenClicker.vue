@@ -105,5 +105,7 @@ function set0() {
 }
 body {
   background-image: url('/background.webp');
+  background-size: cover;
+  background-position: center;
 }
 </style>
