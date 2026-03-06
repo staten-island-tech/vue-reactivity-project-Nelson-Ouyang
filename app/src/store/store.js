@@ -8,6 +8,7 @@ export const store = reactive({
   boughtItems: [],
   babyWhalen: 0,
   babyWhalenMulti: 1,
+  graytonMulti: 0,
 
   ifCantAfford(item) {
     if (this.base < item.cost) {
@@ -37,6 +38,8 @@ export const store = reactive({
       this.exponentbase += item.value
     } else if (item.apply === 'poop') {
       this.multiplierbase *= item.value
+    } else if (item.apply == 'grayton') {
+      this.graytonMulti += item.value
     }
 
     this.boughtItems.push(item)
@@ -47,11 +50,11 @@ export const store = reactive({
   babyWhalenMultiplier() {
     this.babyWhalenMulti = this.babyWhalenMulti + this.babyWhalen ** 0.5
   },
- 
 
   applyAll() {
     this.base +=
-      ((1 + this.additionbase) * (1 + this.multiplierbase) * this.babyWhalenMulti) **
-      (1 + this.exponentbase)
+      (((1 + this.additionbase) * (1 + this.multiplierbase) * this.babyWhalenMulti) **
+        (1 + this.exponentbase)) **
+      this.graytonMulti
   },
 })

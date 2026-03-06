@@ -11,6 +11,7 @@
 
       <ShopCards :shop="shop" @buy="store.buyItem" />
     </div>
+    <BabyWhalen :shop="shop" />
   </body>
 </template>
 
@@ -18,6 +19,7 @@
 import { reactive } from 'vue'
 import { store } from '@/store/store.js'
 import ShopCards from './ShopCards.vue'
+import BabyWhalen from '@/components/BabyWhalen.vue'
 
 const shop = reactive([
   {
@@ -91,6 +93,14 @@ const shop = reactive([
     cost: 1000,
     limit: 1000000000000,
     image: '/Erlenwein.webp',
+  },
+  {
+    name: 'Grayton liu',
+    apply: 'grayton',
+    value: 0.0001,
+    cost: 0,
+    limit: 1000000000000,
+    image: '/Grayton.png',
   },
 ])
 
